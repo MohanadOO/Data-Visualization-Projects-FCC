@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700');
+
+body {
+  display: grid;
+  place-items: center;
+  background: skyblue;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Roboto', 'sans-serif';
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 50px black;
+  padding: 0em 5em;
+}
+
+.reference {
+  font-size: 0.9rem;
+  font-weight: 200;
+  margin-left: auto;
+}
+
+.container h1 {
+  font-size: 2.3rem;
+  font-weight: 200;
+}
+
+svg {
+  background: rgb(199, 185, 186);
+  border-radius: 5px;
+  padding: 4em;
+}
+
+.bar {
+  font-size: 0.8rem;
+  fill: rgb(30, 64, 94);
+}
+
+.bar:hover {
+  fill: rgb(47, 91, 129);
+}
+
+.tooltip {
+  position: absolute;
+  padding: 1em 2em;
+  background: #333;
+  color: white;
+  opacity: 0;
+  border-radius: 5px;
+  pointer-events: none;
+  text-align: center;
+}

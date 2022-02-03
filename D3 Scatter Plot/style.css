@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+  --primary-color: #a69cac;
+  --secondary-color: #0d0c1d;
+
+  --doping-point-color: #f1dac4;
+  --noDoping-point-color: #161b33;
+
+  --between-color: #474973;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--secondary-color);
+  font-family: 'Roboto', 'sans-serif';
+}
+
+.continer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#title {
+  text-anchor: middle;
+  font-size: 1.9rem;
+}
+
+#subtitle {
+  text-anchor: middle;
+  font-size: 1.5rem;
+}
+
+.dot {
+  fill: var(--doping-point-color);
+  stroke: var(--secondary-color);
+}
+
+svg {
+  background: var(--primary-color);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2em 4em;
+}
+
+#tooltip {
+  position: absolute;
+  font-size: 0.9rem;
+  color: whitesmoke;
+  padding: 1em;
+  opacity: 0;
+  border-radius: 5px;
+  background: var(--secondary-color);
+  pointer-events: none;
+  transition: all 0.5s;
+}
+
+#x-axis,
+#y-axis {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.y-label {
+  font-size: 18px;
+  transform: rotate(270deg);
+  color: var(--secondary-color);
+}
+
+#legend {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+#tooltip,
+#title,
+#subtitle,
+#legend {
+  fill: var(--secondary-color);
+}
