@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+  --primary-color: #382621;
+  --text-color: #fbfff5;
+}
+
+body {
+  font-family: 'Open Sans', sans-ser;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+svg {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(135, 69, 31, 0.37);
+  backdrop-filter: blur(12.5px);
+  -webkit-backdrop-filter: blur(12.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#x-axis,
+#y-axis {
+  font-size: 0.7rem;
+  text-shadow: 0px 5px 10px black;
+}
+
+.cell:hover {
+  stroke: black;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 1em;
+  background-color: black;
+  color: whitesmoke;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 1;
+}
+
+#legend {
+  max-width: 300px;
+  height: 100px;
+  margin-top: 1em;
+}
