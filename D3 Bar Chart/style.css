@@ -3,7 +3,7 @@
 body {
   display: grid;
   place-items: center;
-  background: skyblue;
+  background: rgb(199, 194, 185);
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -13,16 +13,19 @@ body {
 .container {
   display: grid;
   place-items: center;
-  background-color: white;
+  background-color: rgb(199, 185, 186);
   border-radius: 5px;
   box-shadow: 2px 2px 50px black;
-  padding: 0em 5em;
+  padding: 0em 3em;
+}
+
+#title {
+  font-size: 2.7rem;
 }
 
 .reference {
-  font-size: 0.9rem;
-  font-weight: 200;
-  margin-left: auto;
+  font-size: 1.1rem;
+  font-weight: 100;
 }
 
 .container h1 {
@@ -31,27 +34,35 @@ body {
 }
 
 svg {
-  background: rgb(199, 185, 186);
   border-radius: 5px;
-  padding: 4em;
+  padding: 2em 4em;
 }
 
 .bar {
-  font-size: 0.8rem;
-  fill: rgb(30, 64, 94);
+  fill: rgb(14, 29, 43);
+}
+
+.tick {
+  font-size: 0.9rem;
 }
 
 .bar:hover {
-  fill: rgb(47, 91, 129);
+  fill: rgb(98, 149, 194);
 }
 
-.tooltip {
+#x-axis,
+#y-axis {
+  color: rgb(0, 0, 0);
+}
+
+#tooltip {
   position: absolute;
   padding: 1em 2em;
-  background: #333;
+  background: rgb(90, 70, 70);
   color: white;
   opacity: 0;
   border-radius: 5px;
   pointer-events: none;
   text-align: center;
+  transition: 0.2s all;
 }
