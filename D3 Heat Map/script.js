@@ -68,7 +68,7 @@ req.onload = () => {
     .attr('class', 'cell')
     .attr('data-month', (d) => d['month'] - 1)
     .attr('data-year', (d) => d['year'])
-    .attr('data-temp', (d) => d['variance'])
+    .attr('data-temp', (d, index) => total[index])
     .attr('fill', (d, index) =>
       total[index] < 3.9
         ? '#4575B4'
@@ -125,15 +125,15 @@ req.onload = () => {
       tooltip.style('opacity', '0')
     })
 
-  var margin1 = { top: 10, right: 10, bottom: 30, left: 10 },
-    legendWidth = 360 - margin1.left - margin1.right,
+  var margin1 = { top: 10, right: 30, bottom: 30, left: 30 },
+    legendWidth = 460 - margin1.left - margin1.right,
     legendHeight = 100 - margin1.top - margin1.bottom
 
   let legendArr = [2.8, 3.9, 5.0, 6.1, 7.2, 8.3, 9.5, 10.6, 11.7, 12.8]
 
   let legendX = d3
     .scaleLinear()
-    .domain([d3.min(legendArr) - 1, d3.max(legendArr) + 1])
+    .domain([d3.min(legendArr), d3.max(legendArr)])
     .range([0, legendWidth])
 
   let legend = d3
@@ -146,24 +146,39 @@ req.onload = () => {
 
   legend
     .selectAll('rect')
-    .data(legendArr)
+    .data(legendArr.filter((d) => d < 12.8))
     .enter()
     .append('rect')
-    .attr('width', (d) => legendX(d))
+    .attr('width', 40)
     .attr('height', 30)
-    .attr('x', (d) => legendX(d))
+    .attr('x', (d) => legendX(d <= 3.9 ? Math.round(d) : Math.floor(d)))
     .attr('y', legendHeight - 15)
     .attr('transform', 'translate(' + 0 + ',' + -15 + ')')
     .attr('class', 'cell')
-    .attr('fill', 'blue')
     .attr('stroke', 'black')
-
-  const legendString = legendArr.map((input) => input.toString())
+    .attr('fill', (d) =>
+      d < 3.9
+        ? '#4575B4'
+        : d < 5
+        ? '#74ADD1'
+        : d < 6.1
+        ? '#ABD9E9'
+        : d < 7.2
+        ? '#E0F3F8'
+        : d < 8.3
+        ? '#FFFFBF'
+        : d < 9.5
+        ? '#FEE090'
+        : d < 10.6
+        ? '#FDAE61'
+        : d < 11.7
+        ? '#F46D43'
+        : '#D73027'
+    )
 
   const legend_xAxis = d3
     .axisBottom(legendX)
-    .tickFormat((d, index) => legendString[index])
-    .ticks(9)
+    .tickFormat((d, index) => legendArr[index])
 
   legend
     .append('g')
